@@ -1,23 +1,30 @@
 export default class Player {
-    constructor(btn) {
-    this.btn = document.querySelector(btn)
-    this.player = null
-
+    constructor(btn, overlay) {
+    this.btns = document.querySelectorAll(btn)
+    this.overlay = document.querySelector(overlay)
+    this.close = this.overlay.querySelector('.close')
     }
-    activatePlayer(id) {
-        this.btn.addEventListener('click', () => {
-            this.player = new YT.Player('player', {
-                height: '360',
-                width: '640',
-                videoId: 'M7lc1UVf-VE',
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        })
+    createPlayer(url){
+        this.player =  new YT.Player('frame',  {
+            height: '100%',
+            width: '100%',
+            videoId: `${url}`
+        });
+
+        this.overlay.style.display = 'flex'
     }
     render() {
-        this.activatePlayer('RzKedPszvVI')
+        const tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        this.btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const path = btn.getAttribute('data-url');
+
+                this.createPlayer(path)
+            })
+        })
     }
 }
