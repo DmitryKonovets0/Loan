@@ -1,8 +1,8 @@
 import Slider from './slider'
 
 export default class MainSlider extends Slider{
-    constructor(page, btns) {
-        super(page, btns)
+    constructor(btns) {
+        super(btns)
     }
     showSlides(n) {
         if (n > this.slides.length) {
@@ -30,12 +30,10 @@ export default class MainSlider extends Slider{
             }
         }, 2000)
         man.style.bottom = '-100%'
-        console.log(this.slideIndex)
 
     }
     plusSlides(n) {
         this.showSlides(this.slideIndex += n);
-        console.log(this.slideIndex)
     }
 
     render() {
