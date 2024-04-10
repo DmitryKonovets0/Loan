@@ -10,7 +10,8 @@ window.addEventListener('DOMContentLoaded', () => {
       next:'.showup__next',
       prev: '.showup__prev',
       activeClass: 'card-active',
-      animate: true
+      animate: true,
+      autoplay: true
    })
    showUpSlider.render()
    const modulesSlider = new MiniSlider({
@@ -18,14 +19,16 @@ window.addEventListener('DOMContentLoaded', () => {
       prev: '.modules__info-btns .slick-prev',
       next:'.modules__info-btns .slick-next',
       activeClass: 'card-active',
-      animate: true
+      animate: true,
+      autoplay: true
    })
    modulesSlider.render()
    const feedSlider = new MiniSlider({
       container: '.feed__slider',
       prev: '.feed__slider .slick-prev',
       next: '.feed__slider .slick-next',
-      activeClass: 'feed__item-active'
+      activeClass: 'feed__item-active',
+      autoplay: true
    })
    feedSlider.render()
    const player = new Player('.showup .play', ".overlay")

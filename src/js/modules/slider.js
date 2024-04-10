@@ -7,6 +7,7 @@ export default class Slider {
                 animate,
                 autoplay } = {}){
         this.container = document.querySelector(container);
+        this.contentContainer = this.container.parentNode
         try {this.slides = [...this.container.children];} catch(e) {}
         try {this.miniSlides = this.container.children;} catch(e) {}
         this.btns = document.querySelectorAll(btns);
